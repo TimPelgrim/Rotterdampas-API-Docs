@@ -98,9 +98,20 @@ A multipart request containing an image under fieldname "image".
   "notification_last_minute": true,
   "notification_review_invitation": true,
   "notification_personal_tips": true,
-  "notification_action": true
+  "notification_action": true,
+  "email_last_minute": true,
+  "email_review_invitation": true,
+  "email_personal_tips": true,
+  "email_partner_reaction": true,
+  "email_pass_information": true,
+  "preferences" : {
+      1: 0.0,
+      2: -1.0,
+      3: 1.0
+  }
 }
 ```
+> preferences are based on the pillar enum and a floating point value from -1.0 to 1.0.
 
 Returns all settings for the current authenticated user.
 
@@ -116,9 +127,20 @@ Returns all settings for the current authenticated user.
   "notification_last_minute": true,
   "notification_review_invitation": true,
   "notification_personal_tips": true,
-  "notification_action": true
+  "notification_action": true,
+  "email_last_minute": true,
+  "email_review_invitation": true,
+  "email_personal_tips": true,
+  "email_partner_reaction": true,
+  "email_pass_information": true,
+  "preferences" : {
+      1: 0.0,
+      2: -1.0,
+      3: 1.0
+  }
 }
 ```
+> preferences are based on the pillar enum and a floating point value from -1.0 to 1.0. 
 
 Returns all settings for the current authenticated user.
 
