@@ -506,6 +506,7 @@ Parameter | Optional | Default | Description
 --------- | -------- | ------- | -----------
 meta | true | false | If set, the body will not contain the results but just the meta data for this call. 
 include_family | true | false | If set, the result will include the actions consumed by the users family. 
+year | true | - | If included, the results will constrained to the specific "pass year".
 
 ## Get current authenticated user
 
