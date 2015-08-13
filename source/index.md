@@ -105,9 +105,9 @@ A multipart request containing an image under fieldname "image".
   "email_partner_reaction": true,
   "email_pass_information": true,
   "preferences" : {
-      1: 0.0,
-      2: -1.0,
-      3: 1.0
+      "1": 0.0,
+      "2": -1.0,
+      "3": 1.0
   }
 }
 ```
@@ -134,9 +134,9 @@ Returns all settings for the current authenticated user.
   "email_partner_reaction": true,
   "email_pass_information": true,
   "preferences" : {
-      1: 0.0,
-      2: -1.0,
-      3: 1.0
+      "1": 0.0,
+      "2": -1.0,
+      "3": 1.0
   }
 }
 ```
