@@ -141,7 +141,7 @@ User management will be specified when the authentication research has concluded
 
 > Offer.type is an enum: 1 = or, 2 = and
 
-This returns the basic information for all the actions that are active right now.
+This returns the basic information for all the actions that are active right now ordered by `end_date` ascending.
 <aside class="success">
 Remember — The results of this call can also be changed by using one of the global call parameters.
 </aside>
@@ -160,6 +160,7 @@ filter | true | - | If set, the actions are filtered based on a predefined rules
 search | true | - | If set, results are returned based on fuzzy text matching. Ordered by match descending. Overrides all other sorting options.
 partner_id | true | - | If set, results are constrained to this partner id.
 meta | true | false | If set, the body will not contain the results but just the meta data for this call.
+monthly | true | false | If set, the results are constrained to just the "monthly" actions.
 
 
 ### Filter
