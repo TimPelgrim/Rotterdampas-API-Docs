@@ -1101,7 +1101,7 @@ Returns a specific wislist and all of its actions.
 
 ```json
 {
-  "name": "Zomervakantie"
+  "title": "Zomervakantie"
 }
 ```
 
@@ -1126,7 +1126,7 @@ Creates a new wishlist.
 
 ```json
 {
-  "name": "Zomervakantie"
+  "title": "Zomervakantie"
 }
 ```
 
