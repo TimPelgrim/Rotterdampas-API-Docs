@@ -146,13 +146,13 @@ Returns all settings for the current authenticated user.
 ```
 > preferences are based on the pillar enum and a floating point value from -1.0 to 1.0. 
 
-Returns all settings for the current authenticated user.
+Update settings for the current authenticated user.
 
 ### Request
 `PUT /api/{version}/users/me/settings`
 
 
-## Post Device id
+## Add Device id
 
 > Request
 
@@ -172,7 +172,7 @@ Returns all settings for the current authenticated user.
 Register your device id for notifications.
 
 ### Request
-`POST /api/{version}/users/devices`
+`POST /api/{version}/users/me/devices`
 
 # Actions
 
@@ -481,7 +481,7 @@ Returns all reviews of an "Actie". Sorted by date added, descending.
 `GET /api/{version}/actions/{id}/reviews`
 
 
-## Post review
+## Add review
 
 > Request
 
@@ -518,7 +518,7 @@ Creates a review and returns it.
 `POST /api/{version}/actions/{id}/reviews`
 
 
-## Post review image
+## Add review image
 
 Creates an image belonging to the review.
 
@@ -714,7 +714,7 @@ Returns all data specific to the logged in user. Excluding wishlists, devices an
 Returns all reviews for the current authenticated user.
 
 ### Request
-`GET /api/{version}/users/reviews`
+`GET /api/{version}/users/me/reviews`
 
 ## Get savings
 
@@ -786,7 +786,7 @@ Returns all reviews for the current authenticated user.
 Returns all savings for the current authenticated user.
 
 ### Request
-`GET /api/{version}/users/savings`
+`GET /api/{version}/users/me/savings`
 
 ### Query parameters
 Parameter | Optional | Default | Description
@@ -864,7 +864,7 @@ A user can add a finished "Actie" and its savings manually.
 
 
 ### Request
-`POST /api/{version}/users/savings`
+`POST /api/{version}/users/me/savings`
 
 ## Update saving
 
@@ -938,7 +938,7 @@ A user can update a finished "Actie" and its savings manually.
 
 
 ### Request
-`PUT /api/{version}/users/savings`
+`PUT /api/{version}/users/me/savings`
 
 
 ## Delete saving
@@ -947,7 +947,7 @@ A user can delete a finished "Actie" and its savings manually.
 
 
 ### Request
-`DELETE /api/{version}/users/savings/{id}`
+`DELETE /api/{version}/users/me/savings/{id}`
 
 # Wishlists
 
@@ -1023,7 +1023,7 @@ Returns all wishlists including a few of their actions.
 
 ### Request
 
-`GET /api/{versions}/users/wishlists`
+`GET /api/{versions}/users/me/wishlists`
 
 ### Query Parameters
 
@@ -1093,7 +1093,7 @@ amount_actions | true | 3 | If set, returns this amount of actions per wishlist.
 Returns a specific wislist and all of its actions.
 
 ### Request
-`GET /api/{versions}/users/wishlists/{id}`
+`GET /api/{versions}/users/me/wishlists/{id}`
 
 ## Post Wishlist
 
@@ -1143,7 +1143,7 @@ Creates a new wishlist.
 Updates the wishlist and its parameters. 
 
 ### Request
-`PUT /api/{versions}/users/wishlists/{id}`
+`PUT /api/{versions}/users/me/wishlists/{id}`
 
 ## Add action to wishlist
 
@@ -1156,7 +1156,7 @@ Adds an action to a wishlist
 
 ### Request
 
-`POST /api/{versions}/users/wishlists/{id}`
+`POST /api/{versions}/users/me/wishlists/{id}`
 
 ## Delete Wishlist
 
@@ -1177,7 +1177,7 @@ Removes an action from a wishlist
 
 ### Request
 
-`DELETE /api/{versions}/users/wishlists/{id}`
+`DELETE /api/{versions}/users/me/wishlists/{id}`
 
 # Passes
 
