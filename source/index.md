@@ -77,6 +77,16 @@ User management will be specified when the authentication research has concluded
 
 ## Forgot Password
 
+## Add pass photo
+
+Posts an image belonging to the user.
+
+### Request
+
+A multipart request containing an image under fieldname "image".
+
+`POST /api/{version}/users/me/images`
+
 # Actions
 
 ## Get All Actions
