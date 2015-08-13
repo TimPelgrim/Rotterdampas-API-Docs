@@ -163,6 +163,7 @@ search | true | - | If set, results are returned based on fuzzy text matching. O
 partner_id | true | - | If set, results are constrained to this partner id.
 meta | true | false | If set, the body will not contain the results but just the meta data for this call.
 monthly | true | false | If set, the results are constrained to just the "monthly" actions.
+recommended | true | false | If set, constrain the result to actions recommended to the logged in user. 
 
 
 ### Filter
