@@ -73,6 +73,8 @@ User management will be specified when the authentication research has concluded
 
 ## Registration
 
+## Update user
+
 ## Password reset
 
 ## Forgot Password
