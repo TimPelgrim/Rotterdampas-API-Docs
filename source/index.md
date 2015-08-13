@@ -500,6 +500,55 @@ A multipart request containing an image under fieldname "image".
 
 `POST /api/{version}/actions/{id}/reviews/{id}/images`
 
+## Delete review image
+
+Deletes an image belonging to the review.
+
+### Request
+
+`DELETE /api/{version}/actions/{id}/reviews/{id}/images`
+
+## Update Review
+
+Updates the users review.
+
+> Request
+
+```json
+{
+  "title": "Hallo",
+  "description": "Beste dag van mijn leven",
+  "rating": 4.8
+}
+```
+> Description is optional.
+
+> Response
+
+```json
+{
+  "id": 3,
+  "author": "Robin Kruijt",
+  "user_thumbnail": "http://example.com/example.jpg",
+  "image_url": "",
+  "rating": 4.8,
+  "title": "Prachtig uitzicht",
+  "description": "Prachtig uitzicht, heerlijk eten.",
+  "post_date": "2015-12-13T19:33:00 +0000",
+  "comment_url": "http://example.com",
+  "is_user_review": true
+}
+```
+
+### Request
+
+`PUT /api/{version}/actions/{id}/reviews/{id}`
+
+## Delete Review
+
+### Request
+
+`DELETE /api/{version}/actions/{id}/reviews/{id}`
 
 # User
 
