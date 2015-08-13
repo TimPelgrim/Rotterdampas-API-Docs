@@ -505,6 +505,7 @@ Returns the actions consumed by the current user ordered by consumption date.
 Parameter | Optional | Default | Description
 --------- | -------- | ------- | -----------
 meta | true | false | If set, the body will not contain the results but just the meta data for this call. 
+include_family | true | false | If set, the result will include the actions consumed by the users family. 
 
 ## Get current authenticated user
 
@@ -697,6 +698,11 @@ Returns all savings for the current authenticated user.
 
 ### Request
 `GET /api/{version}/users/savings`
+
+### Query parameters
+Parameter | Optional | Default | Description
+--------- | -------- | ------- | -----------
+include_family | true | false | If set, the result will include the savings by the users family.
 
 ## Add saving
 
