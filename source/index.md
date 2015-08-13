@@ -75,6 +75,8 @@ User management will be specified when the authentication research has concluded
 
 ## Password reset
 
+## Forgot Password
+
 # Actions
 
 ## Get All Actions
