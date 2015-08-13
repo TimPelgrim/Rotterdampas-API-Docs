@@ -158,10 +158,11 @@ latitude | true | - | If set, the actions are returned based on distance from th
 longitude | true | - | If set, the actions are returned based on distance from the latitude & longitude. Only applies if both are set.
 filter | true | - | If set, the actions are filtered based on a predefined ruleset.
 search | true | - | If set, results are returned based on fuzzy text matching. Ordered by match descending. Overrides all other sorting options.
+partner_id | true | - | If set, results are constrained to this partner id.
 meta | true | false | If set, the body will not contain the results but just the meta data for this call.
 
 
-#### Filter
+### Filter
 
 <aside class="warning">
 Filters are still a work in progress and open for discussion.
