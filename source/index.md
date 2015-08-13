@@ -123,6 +123,29 @@ Returns all settings for the current authenticated user.
 ### Request
 `PUT /api/{version}/users/me/settings`
 
+
+## Post Device id
+
+> Request
+
+```json
+{
+  "device_id": "ahasdjhdaskjd-asdjkaskjd-sad-asd-ascscx-zxc",
+  "type": "android"
+}
+```
+> Type can be "android" or "ios"
+
+> Response
+
+> A status code should be enough.
+
+
+Register your device id for notifications.
+
+### Request
+`POST /api/{version}/users/devices`
+
 # Actions
 
 ## Get All Actions
@@ -577,28 +600,6 @@ Returns all data specific to the logged in user. Excluding wishlists, devices an
 
 ### Request
 `GET /api/{version}/users/me`
-
-## Post Device id
-
-> Request
-
-```json
-{
-  "device_id": "ahasdjhdaskjd-asdjkaskjd-sad-asd-ascscx-zxc",
-  "type": "android"
-}
-```
-> Type can be "android" or "ios"
-
-> Response
-
-> A status code should be enough.
-
-
-Register your device id for notifications.
-
-### Request
-`POST /api/{version}/users/devices`
 
 ## Get reviews
 
