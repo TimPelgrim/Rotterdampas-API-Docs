@@ -1090,3 +1090,42 @@ Removes an action from a wishlist
 ### Request
 
 `DELETE /api/{versions}/users/wishlists/{id}`
+
+# Passes
+
+## Get Passes
+
+Returns all the passes of the current user.
+
+<aside class="warning>
+  TODO: Fill pass details
+</aside>
+ 
+> Response:
+
+``` 
+tbd
+```
+
+### Request
+ 
+`GET /api/{version}/users/me/passes`
+ 
+### Query Parameters
+
+Parameter | Optional | Default | Description
+--------- | -------- | ------- | -----------
+include_family | true | false | If set, includes the passes of the users family.
+
+## Buy pass for user or family member
+
+<aside class="warning>
+TODO: unknown how this should work yet.
+</aside>
+
+## End pass  for user or family member
+
+<aside class="warning>
+TODO: unknown how this should work yet.
+</aside>
+ 
