@@ -1095,7 +1095,7 @@ Returns a specific wislist and all of its actions.
 ### Request
 `GET /api/{versions}/users/me/wishlists/{id}`
 
-## Post Wishlist
+## Add Wishlist
 
 > Request
 
@@ -1185,14 +1185,14 @@ Removes an action from a wishlist
 
 Returns all the passes of the current user.
 
-<aside class="warning>
+<aside class="warning">
   TODO: Fill pass details
 </aside>
  
 > Response:
 
 ``` 
-tbd
+
 ```
 
 ### Request
@@ -1207,13 +1207,13 @@ include_family | true | false | If set, includes the passes of the users family.
 
 ## Buy pass for user or family member
 
-<aside class="warning>
+<aside class="warning">
 TODO: unknown how this should work yet.
 </aside>
 
 ## End pass  for user or family member
 
-<aside class="warning>
+<aside class="warning">
 TODO: unknown how this should work yet.
 </aside>
  
