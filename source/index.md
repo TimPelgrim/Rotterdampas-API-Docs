@@ -73,7 +73,11 @@ User management will be specified when the authentication research has concluded
 
 ## Registration
 
+Includes all the user info like name, e-mail adress and pass number.
+
 ## Update user
+
+Includes all the user info like name, e-mail adress and pass number.
 
 ## Password reset
 
@@ -934,7 +938,7 @@ A user can update a finished "Actie" and its savings manually.
 
 
 ### Request
-`POST /api/{version}/users/savings`
+`PUT /api/{version}/users/savings`
 
 
 ## Delete saving
