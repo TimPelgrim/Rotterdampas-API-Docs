@@ -87,6 +87,42 @@ A multipart request containing an image under fieldname "image".
 
 `POST /api/{version}/users/me/images`
 
+## Get settings
+
+> Response
+
+```json
+{
+  "notification_last_minute": true,
+  "notification_review_invitation": true,
+  "notification_personal_tips": true,
+  "notification_action": true
+}
+```
+
+Returns all settings for the current authenticated user.
+
+### Request
+`GET /api/{version}/users/me/settings`
+
+## Update settings
+
+> Request & Response
+
+```json
+{
+  "notification_last_minute": true,
+  "notification_review_invitation": true,
+  "notification_personal_tips": true,
+  "notification_action": true
+}
+```
+
+Returns all settings for the current authenticated user.
+
+### Request
+`PUT /api/{version}/users/me/settings`
+
 # Actions
 
 ## Get All Actions
@@ -601,42 +637,6 @@ Returns all reviews for the current authenticated user.
 
 ### Request
 `GET /api/{version}/users/reviews`
-
-## Get settings
-
-> Response
-
-```json
-{
-  "notification_last_minute": true,
-  "notification_review_invitation": true,
-  "notification_personal_tips": true,
-  "notification_action": true
-}
-```
-
-Returns all settings for the current authenticated user.
-
-### Request
-`GET /api/{version}/users/settings`
-
-## Update settings
-
-> Request & Response
-
-```json
-{
-  "notification_last_minute": true,
-  "notification_review_invitation": true,
-  "notification_personal_tips": true,
-  "notification_action": true
-}
-```
-
-Returns all settings for the current authenticated user.
-
-### Request
-`PUT /api/{version}/users/settings`
 
 ## Get savings
 
