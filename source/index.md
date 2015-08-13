@@ -73,7 +73,106 @@ User management will be specified when the authentication research has concluded
 
 ## Registration
 
+Includes all the user info like name, e-mail adress and pass number.
+
+## Update user
+
+Includes all the user info like name, e-mail adress and pass number.
+
 ## Password reset
+
+## Forgot Password
+
+## Add pass photo
+
+Posts an image belonging to the user.
+
+### Request
+
+A multipart request containing an image under fieldname "image".
+
+`POST /api/{version}/users/me/images`
+
+## Get settings
+
+> Response
+
+```json
+{
+  "notification_last_minute": true,
+  "notification_review_invitation": true,
+  "notification_personal_tips": true,
+  "notification_action": true,
+  "email_last_minute": true,
+  "email_review_invitation": true,
+  "email_personal_tips": true,
+  "email_partner_reaction": true,
+  "email_pass_information": true,
+  "preferences" : {
+      "1": 0.0,
+      "2": -1.0,
+      "3": 1.0
+  }
+}
+```
+> preferences are based on the pillar enum and a floating point value from -1.0 to 1.0.
+
+Returns all settings for the current authenticated user.
+
+### Request
+`GET /api/{version}/users/me/settings`
+
+## Update settings
+
+> Request & Response
+
+```json
+{
+  "notification_last_minute": true,
+  "notification_review_invitation": true,
+  "notification_personal_tips": true,
+  "notification_action": true,
+  "email_last_minute": true,
+  "email_review_invitation": true,
+  "email_personal_tips": true,
+  "email_partner_reaction": true,
+  "email_pass_information": true,
+  "preferences" : {
+      "1": 0.0,
+      "2": -1.0,
+      "3": 1.0
+  }
+}
+```
+> preferences are based on the pillar enum and a floating point value from -1.0 to 1.0. 
+
+Update settings for the current authenticated user.
+
+### Request
+`PUT /api/{version}/users/me/settings`
+
+
+## Add Device id
+
+> Request
+
+```json
+{
+  "device_id": "ahasdjhdaskjd-asdjkaskjd-sad-asd-ascscx-zxc",
+  "type": "android"
+}
+```
+> Type can be "android" or "ios"
+
+> Response
+
+> A status code should be enough.
+
+
+Register your device id for notifications.
+
+### Request
+`POST /api/{version}/users/me/devices`
 
 # Actions
 
@@ -141,7 +240,7 @@ User management will be specified when the authentication research has concluded
 
 > Offer.type is an enum: 1 = or, 2 = and
 
-This returns the basic information for all the actions that are active right now.
+This returns the basic information for all the actions that are active right now ordered by `end_date` ascending.
 <aside class="success">
 Remember — The results of this call can also be changed by using one of the global call parameters.
 </aside>
@@ -158,10 +257,13 @@ latitude | true | - | If set, the actions are returned based on distance from th
 longitude | true | - | If set, the actions are returned based on distance from the latitude & longitude. Only applies if both are set.
 filter | true | - | If set, the actions are filtered based on a predefined ruleset.
 search | true | - | If set, results are returned based on fuzzy text matching. Ordered by match descending. Overrides all other sorting options.
+partner_id | true | - | If set, results are constrained to this partner id.
 meta | true | false | If set, the body will not contain the results but just the meta data for this call.
+monthly | true | false | If set, the results are constrained to just the "monthly" actions.
+recommended | true | false | If set, constrain the result to actions recommended to the logged in user. 
 
 
-#### Filter
+### Filter
 
 <aside class="warning">
 Filters are still a work in progress and open for discussion.
@@ -269,6 +371,78 @@ Parameter | Optional | Default | Description
 --------- | -------- | ------- | -----------
 user_review | true | false | If set, only returns the review belonging to this user.
 
+## Get Related Actions
+
+Returns all actions related to this actions based on tags and usage.
+
+> Reponse
+
+```json
+{
+  "meta": {
+    "page": 0,
+    "page_size": 30,
+    "total_records": 4000
+  },
+  "actions": [
+    {
+      "id": 1,
+      "title": "Zin van bewegen",
+      "pillar": "EtenDrinken",
+      "thumbnail": "http://example.com/example.jpg",
+      "short_description": "Letterlijk tussen de zee- en binnenvaartschepen ontdek jij het Rotterdamse havengebied. De indrukwekkende skyline glijdt aan je voorbij. En dan werven, dokken en oneindig veel containers…",
+      "is_user_wishlist_item": true,
+      "has_user_consumed_action": true,
+      "has_user_shared_experience": true,
+      "start_date":"2015-12-09T19:33:00 +0000",
+      "end_date": "2015-12-13T19:33:00 +0000",
+      "offers": {
+        "type": 1,
+        "offer": [
+          {
+            "title": "Voor 5 euro naar de dierentuin",
+            "percentage": 25.0,
+            "amount": 23.0
+          }
+        ]
+      },
+      "partner": {
+        "id": 1,
+        "name": "Spido",
+        "url": "http://spido.nl",
+        "phone_number": "010 42984039",
+        "email_address": "example@spido.nl",
+        "street": "Botenlaan",
+        "zipcode": "2343KJ",
+        "street_number": "45",
+        "region": "Rotterdam"
+      },
+      "locations": [
+        {
+          "id": 1,
+          "title": "Ballenbak",
+          "street": "Jan Luykenlaan",
+          "zipcode": "2343KJ",
+          "street_number": "8",
+          "region": "Rotterdam",
+          "latitude": 4.0000,
+          "longitude": 51.0000
+        }
+      ]
+    }
+  ]
+}
+```
+### Request
+
+`GET /api/{version}/actions/{id}/related`
+
+### Query Parameters
+
+Parameter | Optional | Default | Description
+--------- | -------- | ------- | -----------
+meta | true | false | If set, the body will not contain the results but just the meta data for this call.
+
 # Reviews
 
 ## Get reviews
@@ -307,7 +481,7 @@ Returns all reviews of an "Actie". Sorted by date added, descending.
 `GET /api/{version}/actions/{id}/reviews`
 
 
-## Post review
+## Add review
 
 > Request
 
@@ -344,7 +518,7 @@ Creates a review and returns it.
 `POST /api/{version}/actions/{id}/reviews`
 
 
-## Post review image
+## Add review image
 
 Creates an image belonging to the review.
 
@@ -354,8 +528,131 @@ A multipart request containing an image under fieldname "image".
 
 `POST /api/{version}/actions/{id}/reviews/{id}/images`
 
+## Delete review image
+
+Deletes an image belonging to the review.
+
+### Request
+
+`DELETE /api/{version}/actions/{id}/reviews/{id}/images`
+
+## Update Review
+
+Updates the users review.
+
+> Request
+
+```json
+{
+  "title": "Hallo",
+  "description": "Beste dag van mijn leven",
+  "rating": 4.8
+}
+```
+> Description is optional.
+
+> Response
+
+```json
+{
+  "id": 3,
+  "author": "Robin Kruijt",
+  "user_thumbnail": "http://example.com/example.jpg",
+  "image_url": "",
+  "rating": 4.8,
+  "title": "Prachtig uitzicht",
+  "description": "Prachtig uitzicht, heerlijk eten.",
+  "post_date": "2015-12-13T19:33:00 +0000",
+  "comment_url": "http://example.com",
+  "is_user_review": true
+}
+```
+
+### Request
+
+`PUT /api/{version}/actions/{id}/reviews/{id}`
+
+## Delete Review
+
+### Request
+
+`DELETE /api/{version}/actions/{id}/reviews/{id}`
 
 # User
+
+## Get actions
+
+Returns the actions consumed by the current user ordered by consumption date.
+
+> Reponse
+
+```json
+{
+  "meta": {
+    "page": 0,
+    "page_size": 30,
+    "total_records": 100
+  },
+  "actions": [
+    {
+      "id": 1,
+      "title": "Zin van bewegen",
+      "pillar": "EtenDrinken",
+      "thumbnail": "http://example.com/example.jpg",
+      "short_description": "Letterlijk tussen de zee- en binnenvaartschepen ontdek jij het Rotterdamse havengebied. De indrukwekkende skyline glijdt aan je voorbij. En dan werven, dokken en oneindig veel containers…",
+      "is_user_wishlist_item": true,
+      "consumption_date": "2015-12-09T19:33:00 +0000",
+      "has_user_shared_experience": true,
+      "start_date":"2015-12-09T19:33:00 +0000",
+      "end_date": "2015-12-13T19:33:00 +0000",
+      "offers": {
+        "type": 1,
+        "offer": [
+          {
+            "title": "Voor 5 euro naar de dierentuin",
+            "percentage": 25.0,
+            "amount": 23.0
+          }
+        ]
+      },
+      "partner": {
+        "id": 1,
+        "name": "Spido",
+        "url": "http://spido.nl",
+        "phone_number": "010 42984039",
+        "email_address": "example@spido.nl",
+        "street": "Botenlaan",
+        "zipcode": "2343KJ",
+        "street_number": "45",
+        "region": "Rotterdam"
+      },
+      "locations": [
+        {
+          "id": 1,
+          "title": "Ballenbak",
+          "street": "Jan Luykenlaan",
+          "zipcode": "2343KJ",
+          "street_number": "8",
+          "region": "Rotterdam",
+          "latitude": 4.0000,
+          "longitude": 51.0000
+        }
+      ]
+    }
+  ]
+}
+```
+### Request
+
+`GET /api/{version}/users/me/actions`
+
+### Query Parameters
+
+Parameter | Optional | Default | Description
+--------- | -------- | ------- | -----------
+meta | true | false | If set, the body will not contain the results but just the meta data for this call. 
+include_family | true | false | If set, the result will include the actions consumed by the users family. 
+year | true | - | If included, the results will constrained to the specific "pass year".
 
 ## Get current authenticated user
 
@@ -380,28 +677,6 @@ Returns all data specific to the logged in user. Excluding wishlists, devices an
 
 ### Request
 `GET /api/{version}/users/me`
-
-## Post Device id
-
-> Request
-
-```json
-{
-  "device_id": "ahasdjhdaskjd-asdjkaskjd-sad-asd-ascscx-zxc",
-  "type": "android"
-}
-```
-> Type can be "android" or "ios"
-
-> Response
-
-> A status code should be enough.
-
-
-Register your device id for notifications.
-
-### Request
-`POST /api/{version}/users/devices`
 
 ## Get reviews
 
@@ -439,43 +714,7 @@ Register your device id for notifications.
 Returns all reviews for the current authenticated user.
 
 ### Request
-`GET /api/{version}/users/reviews`
-
-## Get settings
-
-> Response
-
-```json
-{
-  "notification_last_minute": true,
-  "notification_review_invitation": true,
-  "notification_personal_tips": true,
-  "notification_action": true
-}
-```
-
-Returns all settings for the current authenticated user.
-
-### Request
-`GET /api/{version}/users/settings`
-
-## Update settings
-
-> Request & Response
-
-```json
-{
-  "notification_last_minute": true,
-  "notification_review_invitation": true,
-  "notification_personal_tips": true,
-  "notification_action": true
-}
-```
-
-Returns all settings for the current authenticated user.
-
-### Request
-`PUT /api/{version}/users/settings`
+`GET /api/{version}/users/me/reviews`
 
 ## Get savings
 
@@ -547,7 +786,12 @@ Returns all settings for the current authenticated user.
 Returns all savings for the current authenticated user.
 
 ### Request
-`GET /api/{version}/users/savings`
+`GET /api/{version}/users/me/savings`
+
+### Query parameters
+Parameter | Optional | Default | Description
+--------- | -------- | ------- | -----------
+include_family | true | false | If set, the result will include the savings by the users family.
 
 ## Add saving
 
@@ -620,7 +864,7 @@ A user can add a finished "Actie" and its savings manually.
 
 
 ### Request
-`POST /api/{version}/users/savings`
+`POST /api/{version}/users/me/savings`
 
 ## Update saving
 
@@ -694,7 +938,7 @@ A user can update a finished "Actie" and its savings manually.
 
 
 ### Request
-`POST /api/{version}/users/savings`
+`PUT /api/{version}/users/me/savings`
 
 
 ## Delete saving
@@ -703,7 +947,7 @@ A user can delete a finished "Actie" and its savings manually.
 
 
 ### Request
-`DELETE /api/{version}/users/savings/{id}`
+`DELETE /api/{version}/users/me/savings/{id}`
 
 # Wishlists
 
@@ -779,7 +1023,7 @@ Returns all wishlists including a few of their actions.
 
 ### Request
 
-`GET /api/{versions}/users/wishlists`
+`GET /api/{versions}/users/me/wishlists`
 
 ### Query Parameters
 
@@ -849,7 +1093,7 @@ amount_actions | true | 3 | If set, returns this amount of actions per wishlist.
 Returns a specific wislist and all of its actions.
 
 ### Request
-`GET /api/{versions}/users/wishlists/{id}`
+`GET /api/{versions}/users/me/wishlists/{id}`
 
 ## Post Wishlist
 
@@ -857,7 +1101,7 @@ Returns a specific wislist and all of its actions.
 
 ```json
 {
-  "name": "Zomervakantie"
+  "title": "Zomervakantie"
 }
 ```
 
@@ -882,7 +1126,7 @@ Creates a new wishlist.
 
 ```json
 {
-  "name": "Zomervakantie"
+  "title": "Zomervakantie"
 }
 ```
 
@@ -899,7 +1143,7 @@ Creates a new wishlist.
 Updates the wishlist and its parameters. 
 
 ### Request
-`PUT /api/{versions}/users/wishlists/{id}`
+`PUT /api/{versions}/users/me/wishlists/{id}`
 
 ## Add action to wishlist
 
@@ -912,7 +1156,7 @@ Adds an action to a wishlist
 
 ### Request
 
-`POST /api/{versions}/users/wishlists/{id}`
+`POST /api/{versions}/users/me/wishlists/{id}`
 
 ## Delete Wishlist
 
@@ -933,4 +1177,43 @@ Removes an action from a wishlist
 
 ### Request
 
-`DELETE /api/{versions}/users/wishlists/{id}`
+`DELETE /api/{versions}/users/me/wishlists/{id}`
+
+# Passes
+
+## Get Passes
+
+Returns all the passes of the current user.
+
+<aside class="warning>
+  TODO: Fill pass details
+</aside>
+ 
+> Response:
+
+``` 
+tbd
+```
+
+### Request
+ 
+`GET /api/{version}/users/me/passes`
+ 
+### Query Parameters
+
+Parameter | Optional | Default | Description
+--------- | -------- | ------- | -----------
+include_family | true | false | If set, includes the passes of the users family.
+
+## Buy pass for user or family member
+
+<aside class="warning>
+TODO: unknown how this should work yet.
+</aside>
+
+## End pass  for user or family member
+
+<aside class="warning>
+TODO: unknown how this should work yet.
+</aside>
+ 

@@ -97,7 +97,116 @@ User management will be specified when the authentication research has concluded
 
 <h2 id="registration">Registration</h2>
 
+<p>Includes all the user info like name, e-mail adress and pass number.</p>
+
+<h2 id="update-user">Update user</h2>
+
+<p>Includes all the user info like name, e-mail adress and pass number.</p>
+
 <h2 id="password-reset">Password reset</h2>
+
+<h2 id="forgot-password">Forgot Password</h2>
+
+<h2 id="add-pass-photo">Add pass photo</h2>
+
+<p>Posts an image belonging to the user.</p>
+
+<h3 id="request">Request</h3>
+
+<p>A multipart request containing an image under fieldname &ldquo;image&rdquo;.</p>
+
+<p><code class="prettyprint">POST /api/{version}/users/me/images</code></p>
+
+<h2 id="get-settings">Get settings</h2>
+
+<blockquote>
+<p>Response</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"notification_last_minute"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"notification_review_invitation"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"notification_personal_tips"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"notification_action"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"email_last_minute"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"email_review_invitation"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"email_personal_tips"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"email_partner_reaction"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"email_pass_information"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"preferences"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"1"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"2"</span><span class="p">:</span><span class="w"> </span><span class="mf">-1.0</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"3"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.0</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<blockquote>
+<p>preferences are based on the pillar enum and a floating point value from -1.0 to 1.0.</p>
+</blockquote>
+
+<p>Returns all settings for the current authenticated user.</p>
+
+<h3 id="request">Request</h3>
+
+<p><code class="prettyprint">GET /api/{version}/users/me/settings</code></p>
+
+<h2 id="update-settings">Update settings</h2>
+
+<blockquote>
+<p>Request &amp; Response</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"notification_last_minute"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"notification_review_invitation"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"notification_personal_tips"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"notification_action"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"email_last_minute"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"email_review_invitation"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"email_personal_tips"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"email_partner_reaction"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"email_pass_information"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"preferences"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"1"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"2"</span><span class="p">:</span><span class="w"> </span><span class="mf">-1.0</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"3"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.0</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<blockquote>
+<p>preferences are based on the pillar enum and a floating point value from -1.0 to 1.0. </p>
+</blockquote>
+
+<p>Update settings for the current authenticated user.</p>
+
+<h3 id="request">Request</h3>
+
+<p><code class="prettyprint">PUT /api/{version}/users/me/settings</code></p>
+
+<h2 id="add-device-id">Add Device id</h2>
+
+<blockquote>
+<p>Request</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"device_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ahasdjhdaskjd-asdjkaskjd-sad-asd-ascscx-zxc"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"android"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<blockquote>
+<p>Type can be &ldquo;android&rdquo; or &ldquo;ios&rdquo;</p>
+
+<p>Response</p>
+
+<p>A status code should be enough.</p>
+</blockquote>
+
+<p>Register your device id for notifications.</p>
+
+<h3 id="request">Request</h3>
+
+<p><code class="prettyprint">POST /api/{version}/users/me/devices</code></p>
 
 <h1 id="actions">Actions</h1>
 
@@ -168,7 +277,7 @@ User management will be specified when the authentication research has concluded
 <p>Offer.type is an enum: 1 = or, 2 = and</p>
 </blockquote>
 
-<p>This returns the basic information for all the actions that are active right now.
+<p>This returns the basic information for all the actions that are active right now ordered by <code class="prettyprint">end_date</code> ascending.
 <aside class="success">
 Remember — The results of this call can also be changed by using one of the global call parameters.
 </aside></p>
@@ -212,14 +321,32 @@ Remember — The results of this call can also be changed by using one of the gl
 <td>If set, results are returned based on fuzzy text matching. Ordered by match descending. Overrides all other sorting options.</td>
 </tr>
 <tr>
+<td>partner_id</td>
+<td>true</td>
+<td>-</td>
+<td>If set, results are constrained to this partner id.</td>
+</tr>
+<tr>
 <td>meta</td>
 <td>true</td>
 <td>false</td>
 <td>If set, the body will not contain the results but just the meta data for this call.</td>
 </tr>
+<tr>
+<td>monthly</td>
+<td>true</td>
+<td>false</td>
+<td>If set, the results are constrained to just the &ldquo;monthly&rdquo; actions.</td>
+</tr>
+<tr>
+<td>recommended</td>
+<td>true</td>
+<td>false</td>
+<td>If set, constrain the result to actions recommended to the logged in user.</td>
+</tr>
 </tbody></table>
 
-<h4 id="filter">Filter</h4>
+<h3 id="filter">Filter</h3>
 
 <aside class="warning">
 Filters are still a work in progress and open for discussion.
@@ -339,6 +466,91 @@ These enums will translate to the &ldquo;Pijler&rdquo;, Boolean flags of the &ld
 </tr>
 </tbody></table>
 
+<h2 id="get-related-actions">Get Related Actions</h2>
+
+<p>Returns all actions related to this actions based on tags and usage.</p>
+
+<blockquote>
+<p>Reponse</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"page"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"page_size"</span><span class="p">:</span><span class="w"> </span><span class="mi">30</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"total_records"</span><span class="p">:</span><span class="w"> </span><span class="mi">4000</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nt">"actions"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Zin van bewegen"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"pillar"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EtenDrinken"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"thumbnail"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://example.com/example.jpg"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"short_description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Letterlijk tussen de zee- en binnenvaartschepen ontdek jij het Rotterdamse havengebied. De indrukwekkende skyline glijdt aan je voorbij. En dan werven, dokken en oneindig veel containers…"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"is_user_wishlist_item"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"has_user_consumed_action"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"has_user_shared_experience"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"start_date"</span><span class="p">:</span><span class="s2">"2015-12-09T19:33:00 +0000"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"end_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-12-13T19:33:00 +0000"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"offers"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"offer"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+          </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Voor 5 euro naar de dierentuin"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"percentage"</span><span class="p">:</span><span class="w"> </span><span class="mf">25.0</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mf">23.0</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span><span class="p">]</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nt">"partner"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Spido"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://spido.nl"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"phone_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"010 42984039"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"email_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"example@spido.nl"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"street"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Botenlaan"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"zipcode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2343KJ"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"street_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"45"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"region"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Rotterdam"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nt">"locations"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Ballenbak"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"street"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Jan Luykenlaan"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"zipcode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2343KJ"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"street_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"8"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"region"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Rotterdam"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"latitude"</span><span class="p">:</span><span class="w"> </span><span class="mf">4.0000</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"longitude"</span><span class="p">:</span><span class="w"> </span><span class="mf">51.0000</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<h3 id="request">Request</h3>
+
+<p><code class="prettyprint">GET /api/{version}/actions/{id}/related</code></p>
+
+<h3 id="query-parameters">Query Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Optional</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>meta</td>
+<td>true</td>
+<td>false</td>
+<td>If set, the body will not contain the results but just the meta data for this call.</td>
+</tr>
+</tbody></table>
+
 <h1 id="reviews">Reviews</h1>
 
 <h2 id="get-reviews">Get reviews</h2>
@@ -376,7 +588,7 @@ These enums will translate to the &ldquo;Pijler&rdquo;, Boolean flags of the &ld
 
 <p><code class="prettyprint">GET /api/{version}/actions/{id}/reviews</code></p>
 
-<h2 id="post-review">Post review</h2>
+<h2 id="add-review">Add review</h2>
 
 <blockquote>
 <p>Request</p>
@@ -413,7 +625,7 @@ These enums will translate to the &ldquo;Pijler&rdquo;, Boolean flags of the &ld
 
 <p><code class="prettyprint">POST /api/{version}/actions/{id}/reviews</code></p>
 
-<h2 id="post-review-image">Post review image</h2>
+<h2 id="add-review-image">Add review image</h2>
 
 <p>Creates an image belonging to the review.</p>
 
@@ -423,7 +635,155 @@ These enums will translate to the &ldquo;Pijler&rdquo;, Boolean flags of the &ld
 
 <p><code class="prettyprint">POST /api/{version}/actions/{id}/reviews/{id}/images</code></p>
 
+<h2 id="delete-review-image">Delete review image</h2>
+
+<p>Deletes an image belonging to the review.</p>
+
+<h3 id="request">Request</h3>
+
+<p><code class="prettyprint">DELETE /api/{version}/actions/{id}/reviews/{id}/images</code></p>
+
+<h2 id="update-review">Update Review</h2>
+
+<p>Updates the users review.</p>
+
+<blockquote>
+<p>Request</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Hallo"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Beste dag van mijn leven"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"rating"</span><span class="p">:</span><span class="w"> </span><span class="mf">4.8</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<blockquote>
+<p>Description is optional.</p>
+
+<p>Response</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"author"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Robin Kruijt"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"user_thumbnail"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://example.com/example.jpg"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"image_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"rating"</span><span class="p">:</span><span class="w"> </span><span class="mf">4.8</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Prachtig uitzicht"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Prachtig uitzicht, heerlijk eten."</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"post_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-12-13T19:33:00 +0000"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"comment_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://example.com"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"is_user_review"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<h3 id="request">Request</h3>
+
+<p><code class="prettyprint">PUT /api/{version}/actions/{id}/reviews/{id}</code></p>
+
+<h2 id="delete-review">Delete Review</h2>
+
+<h3 id="request">Request</h3>
+
+<p><code class="prettyprint">DELETE /api/{version}/actions/{id}/reviews/{id}</code></p>
+
 <h1 id="user">User</h1>
+
+<h2 id="get-actions">Get actions</h2>
+
+<p>Returns the actions consumed by the current user ordered by consumption date.</p>
+
+<blockquote>
+<p>Reponse</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"page"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"page_size"</span><span class="p">:</span><span class="w"> </span><span class="mi">30</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"total_records"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nt">"actions"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Zin van bewegen"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"pillar"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EtenDrinken"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"thumbnail"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://example.com/example.jpg"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"short_description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Letterlijk tussen de zee- en binnenvaartschepen ontdek jij het Rotterdamse havengebied. De indrukwekkende skyline glijdt aan je voorbij. En dan werven, dokken en oneindig veel containers…"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"is_user_wishlist_item"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"consumption_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-12-09T19:33:00 +0000"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"has_user_shared_experience"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"start_date"</span><span class="p">:</span><span class="s2">"2015-12-09T19:33:00 +0000"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"end_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-12-13T19:33:00 +0000"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"offers"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"offer"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+          </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Voor 5 euro naar de dierentuin"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"percentage"</span><span class="p">:</span><span class="w"> </span><span class="mf">25.0</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mf">23.0</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span><span class="p">]</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nt">"partner"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Spido"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://spido.nl"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"phone_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"010 42984039"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"email_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"example@spido.nl"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"street"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Botenlaan"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"zipcode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2343KJ"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"street_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"45"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"region"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Rotterdam"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nt">"locations"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Ballenbak"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"street"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Jan Luykenlaan"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"zipcode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2343KJ"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"street_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"8"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"region"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Rotterdam"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"latitude"</span><span class="p">:</span><span class="w"> </span><span class="mf">4.0000</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"longitude"</span><span class="p">:</span><span class="w"> </span><span class="mf">51.0000</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<h3 id="request">Request</h3>
+
+<p><code class="prettyprint">GET /api/{version}/users/me/actions</code></p>
+
+<h3 id="query-parameters">Query Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Optional</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>meta</td>
+<td>true</td>
+<td>false</td>
+<td>If set, the body will not contain the results but just the meta data for this call.</td>
+</tr>
+<tr>
+<td>include_family</td>
+<td>true</td>
+<td>false</td>
+<td>If set, the result will include the actions consumed by the users family.</td>
+</tr>
+<tr>
+<td>year</td>
+<td>true</td>
+<td>-</td>
+<td>If included, the results will constrained to the specific &ldquo;pass year&rdquo;.</td>
+</tr>
+</tbody></table>
 
 <h2 id="get-current-authenticated-user">Get current authenticated user</h2>
 
@@ -448,31 +808,6 @@ These enums will translate to the &ldquo;Pijler&rdquo;, Boolean flags of the &ld
 <h3 id="request">Request</h3>
 
 <p><code class="prettyprint">GET /api/{version}/users/me</code></p>
-
-<h2 id="post-device-id">Post Device id</h2>
-
-<blockquote>
-<p>Request</p>
-</blockquote>
-<pre class="highlight json"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"device_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ahasdjhdaskjd-asdjkaskjd-sad-asd-ascscx-zxc"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"android"</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-
-<blockquote>
-<p>Type can be &ldquo;android&rdquo; or &ldquo;ios&rdquo;</p>
-
-<p>Response</p>
-
-<p>A status code should be enough.</p>
-</blockquote>
-
-<p>Register your device id for notifications.</p>
-
-<h3 id="request">Request</h3>
-
-<p><code class="prettyprint">POST /api/{version}/users/devices</code></p>
 
 <h2 id="get-reviews">Get reviews</h2>
 
@@ -514,45 +849,7 @@ These enums will translate to the &ldquo;Pijler&rdquo;, Boolean flags of the &ld
 
 <h3 id="request">Request</h3>
 
-<p><code class="prettyprint">GET /api/{version}/users/reviews</code></p>
-
-<h2 id="get-settings">Get settings</h2>
-
-<blockquote>
-<p>Response</p>
-</blockquote>
-<pre class="highlight json"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"notification_last_minute"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"notification_review_invitation"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"notification_personal_tips"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"notification_action"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-
-<p>Returns all settings for the current authenticated user.</p>
-
-<h3 id="request">Request</h3>
-
-<p><code class="prettyprint">GET /api/{version}/users/settings</code></p>
-
-<h2 id="update-settings">Update settings</h2>
-
-<blockquote>
-<p>Request &amp; Response</p>
-</blockquote>
-<pre class="highlight json"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"notification_last_minute"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"notification_review_invitation"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"notification_personal_tips"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"notification_action"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-
-<p>Returns all settings for the current authenticated user.</p>
-
-<h3 id="request">Request</h3>
-
-<p><code class="prettyprint">PUT /api/{version}/users/settings</code></p>
+<p><code class="prettyprint">GET /api/{version}/users/me/reviews</code></p>
 
 <h2 id="get-savings">Get savings</h2>
 
@@ -625,7 +922,25 @@ These enums will translate to the &ldquo;Pijler&rdquo;, Boolean flags of the &ld
 
 <h3 id="request">Request</h3>
 
-<p><code class="prettyprint">GET /api/{version}/users/savings</code></p>
+<p><code class="prettyprint">GET /api/{version}/users/me/savings</code></p>
+
+<h3 id="query-parameters">Query parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Optional</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>include_family</td>
+<td>true</td>
+<td>false</td>
+<td>If set, the result will include the savings by the users family.</td>
+</tr>
+</tbody></table>
 
 <h2 id="add-saving">Add saving</h2>
 
@@ -698,7 +1013,7 @@ These enums will translate to the &ldquo;Pijler&rdquo;, Boolean flags of the &ld
 
 <h3 id="request">Request</h3>
 
-<p><code class="prettyprint">POST /api/{version}/users/savings</code></p>
+<p><code class="prettyprint">POST /api/{version}/users/me/savings</code></p>
 
 <h2 id="update-saving">Update saving</h2>
 
@@ -773,7 +1088,7 @@ These enums will translate to the &ldquo;Pijler&rdquo;, Boolean flags of the &ld
 
 <h3 id="request">Request</h3>
 
-<p><code class="prettyprint">POST /api/{version}/users/savings</code></p>
+<p><code class="prettyprint">PUT /api/{version}/users/me/savings</code></p>
 
 <h2 id="delete-saving">Delete saving</h2>
 
@@ -781,7 +1096,7 @@ These enums will translate to the &ldquo;Pijler&rdquo;, Boolean flags of the &ld
 
 <h3 id="request">Request</h3>
 
-<p><code class="prettyprint">DELETE /api/{version}/users/savings/{id}</code></p>
+<p><code class="prettyprint">DELETE /api/{version}/users/me/savings/{id}</code></p>
 
 <h1 id="wishlists">Wishlists</h1>
 
@@ -857,7 +1172,7 @@ These enums will translate to the &ldquo;Pijler&rdquo;, Boolean flags of the &ld
 
 <h3 id="request">Request</h3>
 
-<p><code class="prettyprint">GET /api/{versions}/users/wishlists</code></p>
+<p><code class="prettyprint">GET /api/{versions}/users/me/wishlists</code></p>
 
 <h3 id="query-parameters">Query Parameters</h3>
 
@@ -939,7 +1254,7 @@ These enums will translate to the &ldquo;Pijler&rdquo;, Boolean flags of the &ld
 
 <h3 id="request">Request</h3>
 
-<p><code class="prettyprint">GET /api/{versions}/users/wishlists/{id}</code></p>
+<p><code class="prettyprint">GET /api/{versions}/users/me/wishlists/{id}</code></p>
 
 <h2 id="post-wishlist">Post Wishlist</h2>
 
@@ -947,7 +1262,7 @@ These enums will translate to the &ldquo;Pijler&rdquo;, Boolean flags of the &ld
 <p>Request</p>
 </blockquote>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Zomervakantie"</span><span class="w">
+  </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Zomervakantie"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
@@ -973,7 +1288,7 @@ These enums will translate to the &ldquo;Pijler&rdquo;, Boolean flags of the &ld
 <p>Request</p>
 </blockquote>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Zomervakantie"</span><span class="w">
+  </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Zomervakantie"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
@@ -991,7 +1306,7 @@ These enums will translate to the &ldquo;Pijler&rdquo;, Boolean flags of the &ld
 
 <h3 id="request">Request</h3>
 
-<p><code class="prettyprint">PUT /api/{versions}/users/wishlists/{id}</code></p>
+<p><code class="prettyprint">PUT /api/{versions}/users/me/wishlists/{id}</code></p>
 
 <h2 id="add-action-to-wishlist">Add action to wishlist</h2>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
@@ -1003,7 +1318,7 @@ These enums will translate to the &ldquo;Pijler&rdquo;, Boolean flags of the &ld
 
 <h3 id="request">Request</h3>
 
-<p><code class="prettyprint">POST /api/{versions}/users/wishlists/{id}</code></p>
+<p><code class="prettyprint">POST /api/{versions}/users/me/wishlists/{id}</code></p>
 
 <h2 id="delete-wishlist">Delete Wishlist</h2>
 
@@ -1023,7 +1338,59 @@ These enums will translate to the &ldquo;Pijler&rdquo;, Boolean flags of the &ld
 
 <h3 id="request">Request</h3>
 
-<p><code class="prettyprint">DELETE /api/{versions}/users/wishlists/{id}</code></p>
+<p><code class="prettyprint">DELETE /api/{versions}/users/me/wishlists/{id}</code></p>
+
+<h1 id="passes">Passes</h1>
+
+<h2 id="get-passes">Get Passes</h2>
+
+<p>Returns all the passes of the current user.</p>
+
+<aside class="warning>
+  TODO: Fill pass details
+</aside>
+ 
+
+<blockquote>
+<p>Response:</p>
+</blockquote>
+<pre class="highlight plaintext"><code>tbd
+</code></pre>
+
+<h3 id="request">Request</h3>
+
+<p><code class="prettyprint">GET /api/{version}/users/me/passes</code></p>
+
+<h3 id="query-parameters">Query Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Optional</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>include_family</td>
+<td>true</td>
+<td>false</td>
+<td>If set, includes the passes of the users family.</td>
+</tr>
+</tbody></table>
+
+<h2 id="buy-pass-for-user-or-family-member">Buy pass for user or family member</h2>
+
+<aside class="warning>
+TODO: unknown how this should work yet.
+</aside>
+
+<h2 id="end-pass-for-user-or-family-member">End pass  for user or family member</h2>
+
+<aside class="warning>
+TODO: unknown how this should work yet.
+</aside>
+ 
 
           <h1 id="errors-and-status-codes">Errors and status codes</h1>
 
