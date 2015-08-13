@@ -434,6 +434,78 @@ A multipart request containing an image under fieldname "image".
 
 # User
 
+## Get actions
+
+Returns the actions consumed by the current user ordered by consumption date.
+
+> Reponse
+
+```json
+{
+  "meta": {
+    "page": 0,
+    "page_size": 30,
+    "total_records": 100
+  },
+  "actions": [
+    {
+      "id": 1,
+      "title": "Zin van bewegen",
+      "pillar": "EtenDrinken",
+      "thumbnail": "http://example.com/example.jpg",
+      "short_description": "Letterlijk tussen de zee- en binnenvaartschepen ontdek jij het Rotterdamse havengebied. De indrukwekkende skyline glijdt aan je voorbij. En dan werven, dokken en oneindig veel containers…",
+      "is_user_wishlist_item": true,
+      "consumption_date": "2015-12-09T19:33:00 +0000",
+      "has_user_shared_experience": true,
+      "start_date":"2015-12-09T19:33:00 +0000",
+      "end_date": "2015-12-13T19:33:00 +0000",
+      "offers": {
+        "type": 1,
+        "offer": [
+          {
+            "title": "Voor 5 euro naar de dierentuin",
+            "percentage": 25.0,
+            "amount": 23.0
+          }
+        ]
+      },
+      "partner": {
+        "id": 1,
+        "name": "Spido",
+        "url": "http://spido.nl",
+        "phone_number": "010 42984039",
+        "email_address": "example@spido.nl",
+        "street": "Botenlaan",
+        "zipcode": "2343KJ",
+        "street_number": "45",
+        "region": "Rotterdam"
+      },
+      "locations": [
+        {
+          "id": 1,
+          "title": "Ballenbak",
+          "street": "Jan Luykenlaan",
+          "zipcode": "2343KJ",
+          "street_number": "8",
+          "region": "Rotterdam",
+          "latitude": 4.0000,
+          "longitude": 51.0000
+        }
+      ]
+    }
+  ]
+}
+```
+### Request
+
+`GET /api/{version}/users/me/actions`
+
+### Query Parameters
+
+Parameter | Optional | Default | Description
+--------- | -------- | ------- | -----------
+meta | true | false | If set, the body will not contain the results but just the meta data for this call. 
+
 ## Get current authenticated user
 
 > Response
