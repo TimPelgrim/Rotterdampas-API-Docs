@@ -79,11 +79,11 @@ Includes all the user info like name, e-mail adress and pass number.
 
 Includes all the user info like name, e-mail adress and pass number.
 
-## Password reset
+## Update Password
 
 ## Forgot Password
 
-## Add pass photo
+## Update user photo
 
 Posts an image belonging to the user.
 
@@ -1118,7 +1118,7 @@ Returns a specific wislist and all of its actions.
 Creates a new wishlist.
 
 ### Request
-`POST /api/{versions}/users/wishlists`
+`POST /api/{versions}/users/me/wishlists`
 
 ## Update Wishlist
 
@@ -1147,6 +1147,8 @@ Updates the wishlist and its parameters.
 
 ## Add action to wishlist
 
+> Request
+
 ```json
 {
   "action_id": 1
@@ -1166,6 +1168,8 @@ Deletes an authenticated users wishlist.
 `DELETE /api/{versions}/users/wishlists/{id}`
 
 ## Remove action from wishlist
+
+> Request
 
 ```json
 {
@@ -1188,12 +1192,7 @@ Returns all the passes of the current user.
 <aside class="warning">
   TODO: Fill pass details
 </aside>
- 
-> Response:
 
-``` 
-
-```
 
 ### Request
  

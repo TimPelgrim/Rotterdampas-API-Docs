@@ -103,11 +103,11 @@ User management will be specified when the authentication research has concluded
 
 <p>Includes all the user info like name, e-mail adress and pass number.</p>
 
-<h2 id="password-reset">Password reset</h2>
+<h2 id="update-password">Update Password</h2>
 
 <h2 id="forgot-password">Forgot Password</h2>
 
-<h2 id="add-pass-photo">Add pass photo</h2>
+<h2 id="update-user-photo">Update user photo</h2>
 
 <p>Posts an image belonging to the user.</p>
 
@@ -1280,7 +1280,7 @@ These enums will translate to the &ldquo;Pijler&rdquo;, Boolean flags of the &ld
 
 <h3 id="request">Request</h3>
 
-<p><code class="prettyprint">POST /api/{versions}/users/wishlists</code></p>
+<p><code class="prettyprint">POST /api/{versions}/users/me/wishlists</code></p>
 
 <h2 id="update-wishlist">Update Wishlist</h2>
 
@@ -1309,6 +1309,10 @@ These enums will translate to the &ldquo;Pijler&rdquo;, Boolean flags of the &ld
 <p><code class="prettyprint">PUT /api/{versions}/users/me/wishlists/{id}</code></p>
 
 <h2 id="add-action-to-wishlist">Add action to wishlist</h2>
+
+<blockquote>
+<p>Request</p>
+</blockquote>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"action_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -1329,6 +1333,10 @@ These enums will translate to the &ldquo;Pijler&rdquo;, Boolean flags of the &ld
 <p><code class="prettyprint">DELETE /api/{versions}/users/wishlists/{id}</code></p>
 
 <h2 id="remove-action-from-wishlist">Remove action from wishlist</h2>
+
+<blockquote>
+<p>Request</p>
+</blockquote>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"action_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -1349,13 +1357,6 @@ These enums will translate to the &ldquo;Pijler&rdquo;, Boolean flags of the &ld
 <aside class="warning">
   TODO: Fill pass details
 </aside>
- 
-
-<blockquote>
-<p>Response:</p>
-</blockquote>
-<pre class="highlight plaintext"><code>
-</code></pre>
 
 <h3 id="request">Request</h3>
 
