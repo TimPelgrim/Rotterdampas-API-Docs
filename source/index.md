@@ -1203,16 +1203,3 @@ Returns all the passes of the current user.
 Parameter | Optional | Default | Description
 --------- | -------- | ------- | -----------
 include_family | true | false | If set, includes the passes of the users family.
-
-## Buy pass for user or family member
-
-<aside class="warning">
-TODO: unknown how this should work yet.
-</aside>
-
-## End pass  for user or family member
-
-<aside class="warning">
-TODO: unknown how this should work yet.
-</aside>
- 
