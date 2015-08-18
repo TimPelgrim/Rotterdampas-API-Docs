@@ -1203,3 +1203,25 @@ Returns all the passes of the current user.
 Parameter | Optional | Default | Description
 --------- | -------- | ------- | -----------
 include_family | true | false | If set, includes the passes of the users family.
+
+> Response
+
+```json
+{
+  "meta": {
+    "page": 0,
+    "page_size": 20,
+    "total_records": 5
+  },
+  "passes":[
+    {
+      "id": 1,
+      "owner_name": "N. de Vries",
+      "number": 086951,
+      "image": "wwww.example.com/image.png",
+      "active": true,
+      "end_date": "2015-12-13T19:33:00 +0000"
+    }
+  ]
+}
+```
