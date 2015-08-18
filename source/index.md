@@ -802,7 +802,8 @@ A user can add a finished "Actie" and its savings manually.
 ```json
 {
   "action_id": 1,
-  "amount": 23.00
+  "amount": 23.00,
+  "date_of_use": "2015-12-09T19:33:00 +0000"
 }
 ```
 
@@ -875,7 +876,8 @@ A user can update a finished "Actie" and its savings manually.
 ```json
 {
   "action_id": 1,
-  "amount": 23.00
+  "amount": 23.00,
+  "date_of_use": "2015-12-09T19:33:00 +0000"
 }
 ```
 > All fields are optional.
