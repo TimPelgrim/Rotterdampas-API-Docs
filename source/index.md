@@ -1191,10 +1191,6 @@ Removes an action from a wishlist
 
 Returns all the passes of the current user.
 
-<aside class="warning">
-  TODO: Fill pass details
-</aside>
-
 
 ### Request
  
